@@ -3,6 +3,8 @@ const algoliasearch = require("algoliasearch");
 const schedule = require("node-schedule");
 require("dotenv").config();
 const app = express();
+console.log("heeeeere");
+
 const { SECRET, ALGO_APP, ALGO_API_KEY, AIRTABLE_API_KEY } = process.env;
 console.log({ SECRET, ALGO_APP, ALGO_API_KEY, AIRTABLE_API_KEY });
 
