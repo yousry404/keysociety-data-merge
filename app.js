@@ -3,9 +3,10 @@ const algoliasearch = require("algoliasearch");
 const schedule = require("node-schedule");
 require('dotenv').config();
 const app = express();
-const client = algoliasearch("B7LZ4C6FIJ", "0d78fbd932282518f3d23006676dd213");
+const { SECRET, ALGO_APP, ALGO_API_KEY, AIRTABLE_API_KEY} = process.env;
+const client = algoliasearch(ALGO_APP, ALGO_API_KEY);
 const Airtable = require("airtable");
-const base = new Airtable({ apiKey: "keylReqwIYAi2rieE" }).base(
+const base = new Airtable({ apiKey: AIRTABLE_API_KEY }).base(
   "appOBAATRYbEAr021"
 );
 const index = client.initIndex("reindexingdata");
@@ -82,7 +83,7 @@ console.log("next update at", j.nextInvocation());
 // force update API
 app.get("/force-update-algolia", (req, res) => {
 
-    if(!req.query.key || req.query.key !== process.env.SECRET) {
+    if(!req.query.key || req.query.key !== SECRET) {
         return res.status(401).json({
             message: "invalid credentials"
         })
