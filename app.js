@@ -1,7 +1,7 @@
 const express = require("express");
 const algoliasearch = require("algoliasearch");
 const schedule = require("node-schedule");
-require("dotenv").config();
+// require("dotenv").config();
 const app = express();
 console.log("heeeeere");
 
