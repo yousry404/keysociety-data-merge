@@ -1,9 +1,9 @@
 const express = require("express");
 const algoliasearch = require("algoliasearch");
 const schedule = require("node-schedule");
-require('dotenv').config();
+require("dotenv").config();
 const app = express();
-const { SECRET, ALGO_APP, ALGO_API_KEY, AIRTABLE_API_KEY} = process.env;
+const { SECRET, ALGO_APP, ALGO_API_KEY, AIRTABLE_API_KEY } = process.env;
 const client = algoliasearch(ALGO_APP, ALGO_API_KEY);
 const Airtable = require("airtable");
 const base = new Airtable({ apiKey: AIRTABLE_API_KEY }).base(
@@ -82,12 +82,11 @@ console.log("next update at", j.nextInvocation());
 
 // force update API
 app.get("/force-update-algolia", (req, res) => {
-
-    if(!req.query.key || req.query.key !== SECRET) {
-        return res.status(401).json({
-            message: "invalid credentials"
-        })
-    }
+  if (!req.query.key || req.query.key !== SECRET) {
+    return res.status(401).json({
+      message: "invalid credentials"
+    });
+  }
   client
     .copyIndex(index.indexName, tmpIndex.indexName, [
       "settings",
