@@ -85,7 +85,7 @@ const j = schedule.scheduleJob("0 1,5,9,13,17,20 * * *", function() {
 console.log("next update at", j.nextInvocation());
 
 // force update API
-app.get("/force-update-algolia", (req, res) => {
+app.get("/force", (req, res) => {
   if (!req.query.key || req.query.key !== SECRET) {
     return res.status(401).json({
       message: "invalid credentials"
