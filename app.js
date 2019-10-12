@@ -7,8 +7,9 @@ console.log("heeeeere");
 
 const { SECRET, ALGO_APP, ALGO_API_KEY, AIRTABLE_API_KEY } = process.env;
 // console.log({ SECRET, ALGO_APP, ALGO_API_KEY, AIRTABLE_API_KEY });
-// const algoAPiKey = process.env.ALGO_APP;
-const client = algoliasearch(process.env.ALGO_APP, process.env.ALGO_API_KEY);
+const algoApp = process.env.ALGO_APP;
+const algoApiKey= process.env.ALGO_API_KEY;
+const client = algoliasearch(algoApp,algoApiKey );
 const Airtable = require("airtable");
 const base = new Airtable({ apiKey: process.env.AIRTABLE_API_KEY }).base(
   "appOBAATRYbEAr021"
