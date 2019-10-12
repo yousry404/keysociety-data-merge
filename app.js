@@ -1,14 +1,14 @@
 const express = require("express");
 const algoliasearch = require("algoliasearch");
 const schedule = require("node-schedule");
-// require("dotenv").config();
+require("dotenv").config();
 const app = express();
 console.log("heeeeere");
 
 const { SECRET, ALGO_APP, ALGO_API_KEY, AIRTABLE_API_KEY } = process.env;
-console.log({ SECRET, ALGO_APP, ALGO_API_KEY, AIRTABLE_API_KEY });
-
-const client = algoliasearch(process.env.ALGO_APP, process.env.selectALGO_API_KEY);
+// console.log({ SECRET, ALGO_APP, ALGO_API_KEY, AIRTABLE_API_KEY });
+// const algoAPiKey = process.env.ALGO_APP;
+const client = algoliasearch(process.env.ALGO_APP, process.env.ALGO_API_KEY);
 const Airtable = require("airtable");
 const base = new Airtable({ apiKey: process.env.AIRTABLE_API_KEY }).base(
   "appOBAATRYbEAr021"
