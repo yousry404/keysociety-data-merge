@@ -11,6 +11,7 @@ const base = new Airtable({ apiKey: AIRTABLE_API_KEY }).base(
 );
 const index = client.initIndex("reindexingdata");
 const tmpIndex = client.initIndex("reindexingdata_tmp");
+console.log({ SECRET, ALGO_APP, ALGO_API_KEY, AIRTABLE_API_KEY });
 
 // automated job
 const j = schedule.scheduleJob("0 1,5,9,13,17,20 * * *", function() {
