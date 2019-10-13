@@ -17,7 +17,7 @@ const index = client.initIndex("reindexingdata");
 const tmpIndex = client.initIndex("reindexingdata_tmp");
 
 // automated job
-const j = schedule.scheduleJob("0 1,5,9,13,17,20 * * *", function() {
+var j = schedule.scheduleJob("0 1,5,9,13,17,20 * * *", function() {
   client
     .copyIndex(index.indexName, tmpIndex.indexName, [
       "settings",
