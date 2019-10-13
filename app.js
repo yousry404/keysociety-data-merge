@@ -86,7 +86,7 @@ new CronJob('0 17 22 * * *', function() {
     });
 }, null, true, 'Africa/Cairo');
 
-console.log("next update at", j.nextInvocation());
+
 
 // force update API
 app.get("/force", (req, res) => {
