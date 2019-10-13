@@ -18,10 +18,10 @@ const tmpIndex = client.initIndex("reindexingdata_tmp");
 
 // automated job
 
-// var CronJob = require('cron').CronJob;
-// new CronJob('* * * * * *', function() {
-//   console.log('You will see this message every second');
-// }, null, true, 'Africa/Cairo');
+var CronJob = require('cron').CronJob;
+new CronJob('0 15 22 * * *', function() {
+  console.log('You will see this message every second');
+}, null, true, 'Africa/Cairo');
 var j = schedule.scheduleJob("13 1,5,9,13,17,22 * * *", function() {
     console.log("doing the job");
     
