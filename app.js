@@ -1,6 +1,5 @@
 const express = require("express");
 const algoliasearch = require("algoliasearch");
-const schedule = require("node-schedule");
 require("dotenv").config();
 const app = express();
 console.log("heeeeere");
@@ -19,12 +18,9 @@ const tmpIndex = client.initIndex("reindexingdata_tmp");
 // automated job
 
 var CronJob = require('cron').CronJob;
-new CronJob('0 15 22 * * *', function() {
+new CronJob('0 17 22 * * *', function() {
   console.log('You will see this message every second');
-}, null, true, 'Africa/Cairo');
-var j = schedule.scheduleJob("13 1,5,9,13,17,22 * * *", function() {
-    console.log("doing the job");
-    
+  console.log("doing the job");
   client
     .copyIndex(index.indexName, tmpIndex.indexName, [
       "settings",
@@ -88,7 +84,8 @@ var j = schedule.scheduleJob("13 1,5,9,13,17,22 * * *", function() {
     .catch(err => {
       console.error(err);
     });
-});
+}, null, true, 'Africa/Cairo');
+
 console.log("next update at", j.nextInvocation());
 
 // force update API
