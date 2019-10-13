@@ -18,7 +18,7 @@ const tmpIndex = client.initIndex("reindexingdata_tmp");
 // automated job
 
 var CronJob = require('cron').CronJob;
-new CronJob('0 25 */2 * * *', function() {
+new CronJob('0 25 */4 * * *', function() {
   console.log('You will see this message every second');
   console.log("doing the job");
   client
